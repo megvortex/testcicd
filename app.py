@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-	return "Hello, Devops!"
+	return "Hello, DevOps!"
 
 
 @app.route('/about')
