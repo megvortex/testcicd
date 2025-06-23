@@ -16,10 +16,13 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh '''
-                    . venv/bin/activate
-                    nohup python3 app.py &
-                    echo "App deployed in background"
+            sh '''
+                    echo "Starting Flask App..."
+                    nohup python3 app.py > flask.log 2>&1 &
+                    sleep 2
+                    ls -lh
+                    echo "Flask started. Log file:"
+                    tail flask.log
                 '''
             }
         }
