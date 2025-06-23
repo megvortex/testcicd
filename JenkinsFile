@@ -13,18 +13,32 @@ pipeline {
 
         stage('Test') {
             steps {
+<<<<<<< HEAD
                 sh '''
                     . venv/bin/activate
                     pytest
                 '''
+=======
+                sh '. venv/bin/activate && pytest test-app.py'
+>>>>>>> 2c9f81a45794293910a62961c11c38d5266b55cd
             }
         }
 
         stage('Deploy') {
             steps {
+<<<<<<< HEAD
                 sh '''
                     nohup venv/bin/python app.py > flask.log 2>&1 &
                     sleep 2
+=======
+            sh '''
+                    echo "Starting Flask App..."
+                    . venv/bin/activate
+                    nohup python3 app.py > flask.log 2>&1 &
+                    sleep 2
+                    ls -lh
+                    echo "Flask started. Log file:"
+>>>>>>> 2c9f81a45794293910a62961c11c38d5266b55cd
                     tail flask.log
                 '''
             }
