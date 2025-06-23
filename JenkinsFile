@@ -18,6 +18,7 @@ pipeline {
             steps {
             sh '''
                     echo "Starting Flask App..."
+                    . venv/bin/activate
                     nohup python3 app.py > flask.log 2>&1 &
                     sleep 2
                     ls -lh
